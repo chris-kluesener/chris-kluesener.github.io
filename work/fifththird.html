@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fifth Third Online Banking: Move Money · Chris Kluesener</title>
+  <meta name="description" content="Redesigning Fifth Third online banking around moving money: one mobile-first flow in place of five separate tools, built on a pattern library that grew into the bank's design system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">Chris Kluesener</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../index.html#work">Work</a>
+        <a href="../resume.html">Resume</a>
+        <a href="mailto:ckluesener@gmail.com">Contact</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <header class="cs-hero">
+        <p class="eyebrow">Fifth Third Bank · Consumer online banking</p>
+        <h1>Move money: redesigning online banking around what customers do most</h1>
+        <p class="lede">People use their bank to save money and move money. At Fifth Third, moving money meant five different tools, most of them from outside vendors. I co-led a mobile-first redesign of online banking, used by customers more than a million times a day, that started with the hardest part: one simple way to move money, wherever it’s going.</p>
+
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Co-lead designer (Senior UX Designer). The only full-time designer on the team, and later the design lead.</dd></div>
+          <div><dt>Timeline</dt><dd>2015–2016, from discovery through the responsive redesign</dd></div>
+          <div><dt>Scale</dt><dd>1 million+ customer logins a day</dd></div>
+          <div><dt>Team</dt><dd>Two lead designers, with product and engineering partners</dd></div>
+          <div><dt>Methods</dt><dd>Customer surveys, analytics, competitive review, card sorts, collaborative sketching, paper prototypes, usability testing, Pattern Lab</dd></div>
+        </dl>
+      </header>
+
+      <figure class="wide">
+        <img src="../images/fifththird/hero.jpg" alt="The redesigned Move Money flow on desktop and phone. The first step asks where the money is going, with four choices: Another Account, This Account, A Business, A Person.">
+        <figcaption>The first step of the new flow, on desktop and phone. Instead of choosing a tool, customers choose where the money is going. From the working Pattern Lab prototype; data is fictional.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <aside class="tldr" aria-label="Summary">
+          <h2>In short</h2>
+          <ul>
+            <li><strong>Problem:</strong> on a site with more than a million logins a day, transfers, bill pay, person-to-person payments and payments to other banks each lived in a separate tool, most of them from outside vendors, with different screens and rules.</li>
+            <li><strong>What I did:</strong> co-led discovery and design, helped make the case for building one experience instead of wrapping vendor screens, designed the mobile-first flow, and co-maintained the pattern library it was built from.</li>
+            <li><strong>Result:</strong> one simple flow for every kind of money movement. Customers found it simpler and less intimidating, and the pattern library grew into the bank’s design system for web and mobile.</li>
+          </ul>
+        </aside>
+
+        <section>
+          <h2>Why start with moving money</h2>
+          <p>The redesign had plenty of visible reasons: an aging interface, a new technology platform, and the arrival of responsive web design. But underneath, a bank does two things for most customers. It holds their money, and it moves their money: paying bills, paying people, moving funds between accounts. If moving money was hard, nothing else about a new look would matter.</p>
+          <p>So the team was asked to look at every way a customer could move money online, and recommend what to build.</p>
+        </section>
+
+        <section>
+          <h2>Five tools for one job</h2>
+          <p>Over the years, each new way to move money had arrived as its own product. Internal transfers, external transfers, bill pay, person-to-person payments and web payments each had a separate path, most of them run by third-party vendors. Customers had to know which tool did what before they could start, and each one looked and behaved differently.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/fifththird/current-flow.jpg" alt="Slide titled Current Flow: transfers, payments and web payments branch into internal, external and person-to-person paths, each ending in a different internal or third-party app, with markers for where customers pay fees.">
+        <figcaption>From our recommendation deck: the current flow. Each branch ended in a different app, three of them from third parties, with fees in different places.</figcaption>
+      </figure>
+
+      <figure class="text">
+        <img src="../images/fifththird/whiteboard-map.jpg" alt="Whiteboard sketch mapping transfers and payments: internal transfer, external transfer, person-to-person, bill pay and web payment, grouped into four different interfaces.">
+        <figcaption>Working board: counting the interfaces. Each blue bracket is a different UI a customer could land in, depending on how they wanted to move money.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Discovery: how customers think about money</h2>
+          <p>We combined customer surveys, usability results from the existing site, site analytics and a competitive review of six banks’ responsive sites. Then we ran card sorts to learn how customers group the places their money goes.</p>
+          <p>We worked in a four-month series of quick design sprints and story spikes, each turning around discovery, concepts and testing for a piece of moving money in days, not months.</p>
+          <p>The card sort changed the question. Customers didn’t sort by product or by system. They sorted by <strong>who</strong> the money was going to: their own accounts, their bills, and people like “Grandma,” “my yoga instructor” or “the guy who mows my lawn.” Whether a payment ran through bill pay, a transfer service or a person-to-person vendor didn’t matter to them at all.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <div class="pair">
+          <div><img src="../images/fifththird/card-sort.jpg" alt="Card sort in progress on a table: participants grouping cards under headings such as Bank Accounts, Bills and People, with cards like Grandma, Yoga Instructor and Best Friend."></div>
+          <div><img src="../images/fifththird/whiteboard-move-money.jpg" alt="Whiteboard sketch of a Move Money structure: From and To branches, with To split into internal account, person, external account and payee, plus a rough list screen."></div>
+        </div>
+        <figcaption>Left: a card sort session. Customers grouped by relationship (accounts, bills, people), not by product. Right: the whiteboard where that became the structure of Move Money, from where and to whom.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>The big decision: wrap the vendors, or own the experience</h2>
+          <p>The quicker option was to keep every vendor and frame their screens inside the new site. We laid out both options side by side for leadership:</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="decision-title">
+        <p class="diagram-title" id="decision-title">The two options we presented</p>
+        <table class="compare">
+          <thead><tr><th scope="col">Frame the vendor tools</th><th scope="col">Build one experience Fifth Third owns</th></tr></thead>
+          <tbody>
+            <tr><td>Cheaper and potentially faster to market</td><td>More work up front across several teams, best done in stages</td></tr>
+            <tr><td>None of the vendor tools were responsive, so the new site would wrap old, desktop-only screens</td><td>Mobile first, with the same behavior on the website and in the apps</td></tr>
+            <tr><td>An inconsistent look and feel, and every vendor’s feature bloat</td><td>One consistent flow, whatever system is behind it</td></tr>
+            <tr><td>Dependent on vendors to take our feedback, and on their release schedules</td><td>Fifth Third controls the experience, and owns the data to personalize it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <p>We recommended owning it. The backend could stay complicated. That was Fifth Third’s problem to solve, not the customer’s. The recommendation was approved, and moving money became the first flow designed for the new platform.</p>
+          <p class="pull">Customers choose who the money is going to. The system figures out how to get it there.</p>
+        </section>
+
+        <section>
+          <h2>One flow for everything</h2>
+          <p>Every kind of money movement used the same steps. The first question is where the money is going, in plain language: another account, this account, a business, or a person. After that the flow is always the same.</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="flow-title">
+        <p class="diagram-title" id="flow-title">The Move Money flow</p>
+        <ol class="flow">
+          <li><strong>To</strong>Another account, this account, a business or a person, each with a one-line description.</li>
+          <li><strong>From</strong>The customer’s accounts, with balances shown next to each name.</li>
+          <li><strong>Amount and date</strong>Amount, send date and frequency, so one-time and recurring use the same screen.</li>
+          <li><strong>Confirm</strong>Every detail on one screen, each with an edit link.</li>
+          <li><strong>Done</strong>A clear confirmation and a way back to accounts.</li>
+        </ol>
+      </div>
+
+      <figure class="wide">
+        <div class="pair">
+          <div><img src="../images/fifththird/paper-prototypes.jpg" alt="Printed paper prototypes of the mobile Move Money screens laid out on a table, with a sticky note reading Move Money Duke pay."></div>
+          <div><img src="../images/fifththird/whiteboard-scenario.jpg" alt="Whiteboard scenarios of one person paying another, with a sketched To field and options for how the money is sent."></div>
+        </div>
+        <figcaption>Left: paper prototypes of a bill payment, printed and tested before any code. Right: working through person-to-person scenarios on a whiteboard.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <img src="../images/fifththird/wires.jpg" alt="Five mobile wireframes for paying a bill: choose where the money is going, choose the business, enter amount and date, confirm, and payment complete.">
+        <figcaption>Mobile-first wireframes for paying a bill: To, choose the business, amount and date, confirm, done. The same five screens handle transfers and payments to people.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Mobile first, built from patterns</h2>
+          <p>The redesign came at a turning point in web design. Responsive sites were new, and it was finally practical to design for the phone first and scale up. We also stopped designing pages one at a time. We rebuilt online banking from its core components, using <strong>Atomic Design</strong> as our guiding system. The other lead designer and I built and maintained it in <strong>Pattern Lab</strong>, a pattern library that assembles pages from small, reusable pieces: atoms like buttons and icons, molecules like a labeled field, up to full page templates. Each sprint, we researched, built and tested designs in the browser.</p>
+          <p>That gave engineering working, responsive markup instead of static mockups, and it kept every flow consistent as the site grew.</p>
+        </section>
+      </div>
+
+      <div class="stats wide" role="list" style="max-width: var(--wide-width)">
+        <div class="stat" role="listitem"><b>88</b><span>atoms: icons, type, buttons, form controls</span></div>
+        <div class="stat" role="listitem"><b>77</b><span>molecules: fields, account rows, step indicators</span></div>
+        <div class="stat" role="listitem"><b>18</b><span>organisms: navigation, account lists, forms</span></div>
+        <div class="stat" role="listitem"><b>35</b><span>templates</span></div>
+        <div class="stat" role="listitem"><b>146</b><span>prototype pages, desktop and mobile</span></div>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/fifththird/phones.jpg" alt="Three phone screens from the prototype: an accounts list with balances, the To step of Move Money, and the Amount and Frequency step.">
+        <figcaption>The working prototype on a phone: accounts, the first step of Move Money, and amount and frequency. Every screen was assembled from the pattern library.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <img src="../images/fifththird/pattern-lab.jpg" alt="Pattern Lab page listing icon atoms, each with its name, character, Unicode value and CSS class.">
+        <figcaption>A slice of the pattern library: icon atoms with the names and classes engineering used. This library later became the foundation of the bank’s design system for web and mobile.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>What testing told us</h2>
+          <p>We tested the redesign with six customers, side by side with the existing site. The overall reaction was consistent:</p>
+          <p class="pull">“More basic, which is good.” “Less intimidating.” “Less… just… stuff.”</p>
+          <ul>
+            <li><strong>Moving money between their own accounts worked.</strong> Participants moved through internal and recurring transfers quickly, liked seeing balances next to each account, and liked the confirmation screen. One called it “big, clear.”</li>
+            <li><strong>Paying another bank’s account was the hard concept.</strong> Several participants said they would just go to the other bank’s website, and some didn’t look for the option at all. We made it more prominent and changed the labels to say plainly that the account was at another bank.</li>
+            <li><strong>Small things got in the way.</strong> A search box above short account lists confused people, so we removed it. Customers also kept asking for text message alerts, which fed directly into the next round of work.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Outcome</h2>
+          <p>Move Money shipped as one flow for every way a customer could move money, on any screen size. Customers found it far simpler, and customer satisfaction with the redesign was good. Because the experience belonged to Fifth Third instead of a vendor, the team could keep building on it. Notable follow-on work included:</p>
+          <ul>
+            <li><strong>Smarter alerts,</strong> including the text message delivery customers asked for in testing</li>
+            <li><strong>Stronger online security</strong> for login and devices</li>
+            <li><strong>Zelle</strong> person-to-person payments, added to the same flow</li>
+          </ul>
+          <p>I was eventually left in charge of design for online banking. The pattern library became the starting point for the bank’s design system, which I went on to found, with designers and UX engineers serving both web and mobile.</p>
+        </section>
+
+        <section>
+          <h2>Reflection</h2>
+          <ul>
+            <li><strong>Organize around the customer’s question, not your org chart.</strong> Five tools existed because of how the bank bought software. The card sort showed customers think about who they’re paying, and that one insight simplified everything.</li>
+            <li><strong>The decision mattered more than the screens.</strong> The most important design work was making the case to own the experience. Wrapping the vendors would have locked the old complexity into a new frame.</li>
+            <li><strong>Systems outlast projects.</strong> Screens change. The pattern library, and the habit of designing in reusable parts, carried forward into a design system.</li>
+          </ul>
+        </section>
+
+        <p class="next-cs"><a href="beacon.html">← Previous: Beacon supply chain control tower</a> · <a href="../index.html#work">All work</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chris Kluesener · Cincinnati, OH</span>
+      <nav aria-label="Footer">
+        <a href="mailto:ckluesener@gmail.com">Email me</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="../files/chris-kluesener-resume.pdf" download>Resume (PDF)</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>

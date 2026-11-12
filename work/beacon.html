@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beacon: Supply Chain Control Tower · Chris Kluesener</title>
+  <meta name="description" content="Turning a supply chain white paper into a role-based control tower vision, up to three funded product teams, and two MVPs at Kroger.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">Chris Kluesener</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../index.html#work">Work</a>
+        <a href="../resume.html">Resume</a>
+        <a href="mailto:ckluesener@gmail.com">Contact</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <header class="cs-hero">
+        <p class="eyebrow">Kroger · Supply chain</p>
+        <h1>Beacon: from a white paper to a supply chain platform, in two tries</h1>
+        <p class="lede">Kroger’s supply chain ran on spreadsheets and firefighting. I turned a white paper about a “control tower” into a vision leadership could fund, narrowed it to a first MVP, and then used what we learned when it stalled to restart the platform around buyers.</p>
+
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Design manager (Senior Manager, Product Design). Led discovery, vision and strategy; owned the solution approach and directed two senior product designers.</dd></div>
+          <div><dt>Timeline</dt><dd>2022–2025: vision in 2022, analyst MVP in 2023, Beacon 2.0 and the buyer MVP in 2024</dd></div>
+          <div><dt>Team</dt><dd>Grew from 3 people to as many as three product teams at its peak, with PMs, a scrum master, designers, data engineers, an architect, developers and data science partners</dd></div>
+          <div><dt>Methods</dt><dd>Design sprint, contextual inquiry, proto-personas, story mapping, vision prototype, IA, success metrics</dd></div>
+        </dl>
+      </header>
+
+      <figure class="wide">
+        <img src="../images/beacon/release1-dashboard.jpg" alt="Control tower dashboard for a purchase order analyst: a to-do list of problem POs tagged Dock Conflict, No Appointment, Transit and Short PO; top trend alerts; a facility health score of 93; supplier and carrier ratings; and a dock schedule of today's critical POs.">
+        <figcaption>The first release, designed for purchase order analysts. Their weekly spreadsheet loop became a to-do list of the POs that need attention today. From the vision prototype; all data is fictional.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <aside class="tldr" aria-label="Summary">
+          <h2>In short</h2>
+          <ul>
+            <li><strong>Problem:</strong> no one could see the supply chain end to end. Data sat in legacy systems, vendor tools and Excel, so teams found problems only after stores felt them.</li>
+            <li><strong>What I did:</strong> led a design sprint and discovery, narrowed “the whole supply chain” to the purchase order, and set the role-based vision and information architecture. I also directed the designers on the first MVPs.</li>
+            <li><strong>Result:</strong> the vision funded a product team, which grew to three at its peak and shipped an MVP that analysts used for real work. When it was shelved, I led the post-mortem. Its lessons shaped Beacon 2.0, which shipped Buyer Modernization to buyers moving to Oracle RMS.</li>
+          </ul>
+        </aside>
+
+        <section>
+          <h2>A supply chain no one could see</h2>
+          <p>Coming out of the pandemic, Kroger’s supply chain was in rough shape. Only about half of purchase orders reached distribution centers on their scheduled day, and stores were getting only about half of the cases they ordered. Every day brought late trucks, short shipments and recalls, and the information needed to respond was spread across too many systems.</p>
+          <p>A white paper written for supply chain leadership proposed a “control tower” to fix it, built around three capabilities:</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="spp-title">
+        <p class="diagram-title" id="spp-title">The white paper’s promise</p>
+        <ol class="flow cols-3">
+          <li><strong>Sense</strong>One version of the truth, instead of a dozen tools, dashboards and “sources of truth.”</li>
+          <li><strong>Predict</strong>See the downstream effect of a problem before it reaches a store shelf.</li>
+          <li><strong>Prescribe</strong>Route a standard response to the person who can act on it.</li>
+        </ol>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <p>I was brought in to turn that paper into something buildable. The working assumption was a big data layer with a dashboard on top, a “digital twin” of the whole network. The risk, as we put it in our own strategy session, was boiling the ocean.</p>
+        </section>
+
+        <section>
+          <h2>A five-day sprint to find a starting point</h2>
+          <p>I planned and facilitated a five-day design sprint with subject matter experts from known problem areas, such as distribution center receiving and vendor ordering. We built on the white paper instead of starting over. We set a long-term goal and sprint questions, mapped the network end to end, interviewed experts, then sketched, decided and storyboarded.</p>
+          <p>The map changed the question. Most of the pain was concentrated inbound, between the supplier and the distribution center, and nearly all of it ran through one object.</p>
+          <p class="pull">The purchase order is the backbone of inventory moving through the supply chain.</p>
+          <p>Roughly 4 in 10 purchase orders needed someone to investigate them, so the question shifted from “how do we see everything?” to “how do we make every PO visible to everyone who depends on it?”</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/beacon/disc-map.jpg" title="Open full size"><img src="../images/beacon/disc-map.jpg" alt="Sprint whiteboard mapping a purchase order from demand to a fulfilled store order: yellow steps, pink decision diamonds such as whether the supplier can fill the PO, whether the carrier scheduled an appointment and whether the DC has enough labor, and red circles marking where things break."></a>
+        <figcaption>Working board from the sprint: one PO traced from demand to a filled store order. Pink diamonds are the decisions along the way, and red circles are where it breaks: no appointment, a missed arrival date, no labor at the dock. Most of the red clustered inbound, before the distribution center.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+
+        <section>
+          <h2>Finding the first user</h2>
+          <p>A temporary team of about six analysts, the Critical Purchase Order Control Center, was assigned vendors deemed critical and monitored every one of their purchase orders. Because the work was all manual, they could only cover the top 25 vendors. We interviewed and observed 5 of them and built a proto-persona around a line one of them said:</p>
+          <p class="pull">“We are to create visibility where otherwise nobody’s looking.”</p>
+          <p>Their week was the same loop, 52 weeks a year:</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="week-title">
+        <p class="diagram-title" id="week-title">An analyst’s week, before</p>
+        <ol class="flow">
+          <li><strong>Monday</strong>Pull reports of open POs, split them by vendor and email each vendor for comments.</li>
+          <li><strong>Tuesday</strong>Merge vendor replies, look for trends and revise the reports.</li>
+          <li><strong>Wednesday</strong>Meet with vendors.</li>
+          <li><strong>Thursday</strong>Pull fresh reports and email vendors again.</li>
+          <li><strong>Friday</strong>Merge replies and revise reports. Repeat.</li>
+        </ol>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <p>The data was out of date the moment it was exported. Sources disagreed, and analysts prioritized POs by hand across several metrics. Two findings shaped everything after:</p>
+          <ul>
+            <li><strong>The problem was connection, not visibility.</strong> Kroger already had plenty of dashboards. People needed the right data for their role, in one place, with the people they had to work with.</li>
+            <li><strong>Many roles touched one PO.</strong> Buyers, schedulers, analysts, distribution center coordinators and vendors each saw a different slice of the same order. That pointed to a role-based platform, not a single dashboard.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/beacon/disc-research.jpg" title="Open full size"><img src="../images/beacon/disc-research.jpg" alt="Research board: analyst quotes on pink stickies, the week-in-the-life loop, a stakeholder map with the analyst at the center connected to vendors, carriers, buyers, DC receiving and the transportation center, and the analyst proto-persona."></a>
+        <figcaption>Working board from analyst research: their quotes, the weekly loop, a stakeholder map and the proto-persona. The stakeholder map is where the second finding showed up: one analyst connected to vendors, carriers, buyers, receiving and the transportation center, all working the same PO.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+
+        <section>
+          <h2>Key decisions</h2>
+          <h3>1. Start with the purchase order, not the whole network</h3>
+          <p>The ask was a network-wide health view. I pushed for one high-value process where the pain and the data were concentrated, so we could prove value quickly. We gave up some of the white paper’s scale to ship something people would use.</p>
+          <h3>2. Design for one role first, inside a platform built for many</h3>
+          <p>Analysts were the beachhead: a small team, acute pain and a measurable workflow. I designed the information architecture so other roles and product teams could plug in later without a redesign.</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="ia-title">
+        <p class="diagram-title" id="ia-title">Role-based information architecture</p>
+        <table class="compare">
+          <thead><tr><th scope="col">Level</th><th scope="col">What lives there</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Universal top navigation</strong><br>Same for everyone</td><td>My Dashboard, Track a PO, Look up inventory, search, alerts. One way to find any PO or item, whatever your job.</td></tr>
+            <tr><td><strong>Role side navigation</strong><br>“The heart of the role-based experience”</td><td>The modules your role needs, such as buying, forecasting, warehouse appointments or transportation. If you have one primary role, you land straight in it.</td></tr>
+            <tr><td><strong>Shared capabilities</strong><br>Built once, reused</td><td>Product teams contribute modules, like PO tracking or warehouse appointments, that other roles can reuse or adapt instead of rebuilding.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <h3>3. Sense before predict and prescribe</h3>
+          <p>The white paper sold prediction. But you can’t predict a late truck until you trust the data on where trucks are and know what normal looks like. We planned the roadmap as crawl, walk, run: first a trustworthy view and history, then alerts on key exceptions, then role-based recommended actions. That meant a less flashy MVP, but one that didn’t promise intelligence the data couldn’t support.</p>
+          <h3>4. Give leadership a vision to react to, not a requirements document</h3>
+          <p>We built a clickable vision prototype and a story-driven showcase. It asked: what if we could sense, predict and prescribe? What if every role had one place to work? Leadership needed something to rally behind and fund, not a feature list.</p>
+        </section>
+
+        <section>
+          <h2>The vision prototype</h2>
+          <p>The prototype followed a single PO from creation to receipt, tracking where it was, how healthy it was and who needed to act. Details came out of working sessions with business owners. For example:</p>
+          <ul>
+            <li><strong>Exceptions first.</strong> Don’t make anyone scroll through 1,000 POs. Surface the 75 with problems.</li>
+            <li><strong>A health score per PO,</strong> with the milestone driving it, so “late” has a reason attached.</li>
+            <li><strong>Contacts and updates on the PO,</strong> so the analyst, buyer, carrier and vendor work from the same page instead of an email thread.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide tall">
+        <img src="../images/beacon/po-detail.jpg" alt="Purchase order detail: a nine-step lifecycle from Created to Complete stopped at Gate Arrival; a PO health score of 55 showing supplier shipped late and appointment scheduling critical; tags; a contacts panel with buyer, analyst, transportation coordinator and supplier; and an alert that the dock appointment needs scheduling.">
+        <figcaption>The PO detail page. The lifecycle shows where the order is stuck, the health score shows why, and the alert tells the analyst what to do next.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <img src="../images/beacon/po-lifecycle.jpg" alt="Four versions of the PO detail page side by side: a completed order, an order waiting on a delivery date, an order where the supplier shipped short, and an order completed with a discrepancy.">
+        <figcaption>One page, four states: on track, waiting on a delivery date, supplier shipped short, and received with a discrepancy. Designing the exceptions, not just the happy path, was most of the work.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Shipping the first MVP</h2>
+          <p>The vision did its job: leadership funded a dedicated product team, and at its peak Beacon had three. The first release was PO Visibility for analysts. It gave them one view of open POs and their status and let them email vendors from inside the tool, replacing the export, merge and email cycle. Two senior product designers did the detailed UI under my direction.</p>
+          <p>Before launch, I worked with the team to define what success would mean:</p>
+          <div class="stats" role="list">
+            <div class="stat" role="listitem"><b>50%</b><span>of analysts using it daily, and how fast we got there</span></div>
+            <div class="stat" role="listitem"><b>90%</b><span>of analysts using email-to-vendor</span></div>
+            <div class="stat" role="listitem"><b>80+</b><span>System Usability Scale target (68 is average)</span></div>
+          </div>
+          <p>We also built a lightweight feedback survey into the product, to catch bugs, data-accuracy problems and ease-of-use ratings from day one.</p>
+        </section>
+
+        <section>
+          <h2>What testing told us</h2>
+          <p>We ran a usability study with analysts on the delivered MVP. Two of three completed all 15 tasks, and the third completed 12. The biggest concern wasn’t the design. It was <strong>speed</strong>: two of three worried about how responsive the system was, which became the team’s top fix. Analysts also asked for:</p>
+          <ul>
+            <li>More PO statuses, such as missed appointments and “no appointment”</li>
+            <li>Bulk commenting, email templates and free-text notes to vendors</li>
+            <li>Summary metrics for distribution centers and vendors</li>
+          </ul>
+          <p>Research pointed to the next steps: help analysts book delivery appointments inside the tool, use data science to flag POs at risk of being late, and share performance metrics with vendors.</p>
+        </section>
+
+        <section>
+          <h2>Why the first MVP stalled</h2>
+          <p>Analysts used PO Visibility for real work, and people on the team described it as “solving real-world problems.” But in mid-2023 the team was shelved, and most of its members moved to a new end-to-end supply chain data team. The reasoning was that Beacon couldn’t reach its potential until the data foundation underneath it existed.</p>
+          <p>I facilitated a post-mortem with the original stakeholders to turn frustration into a plan a future team could use. The themes were consistent:</p>
+          <ul>
+            <li><strong>The original executive sponsor left early,</strong> and ownership changed hands.</li>
+            <li><strong>The value estimate was never tied to a real ROI model.</strong> When dates slipped, nobody could answer the ROI question.</li>
+            <li><strong>Technology ended up driving business strategy.</strong> The business needed to own the vision.</li>
+            <li><strong>The analyst problem was real, but it wasn’t the business’s biggest problem.</strong> Analysts were easy to ship to, but few business partners were waiting on the result.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>The second time: Beacon 2.0</h2>
+          <p>In 2024 Beacon was funded again. The vision hadn’t changed: sense, predict and prescribe across the supply chain. What changed was how we chose where to start. We needed one problem, felt by one user group, whose business partners had both the funding and the interest to solve it. And it had to touch roles up and downstream, so we could extend it when the time came.</p>
+
+          <div class="diagram">
+            <p class="diagram-title">What we changed after the post-mortem</p>
+            <table class="compare">
+              <thead><tr><th scope="col">Lesson from the first MVP</th><th scope="col">How Beacon 2.0 applied it</th></tr></thead>
+              <tbody>
+                <tr><td>Pick the first user for strategic value, not just ease</td><td><strong>Buyers.</strong> Every buyer was moving to Oracle’s new merchandising system (RMS), and the business was funding that move. Gaps in RMS put a problem in front of every buyer who migrated.</td></tr>
+                <tr><td>Solve for one role, but design for the others</td><td><strong>Buyers create the PO</strong> that analysts, distribution centers and vendors act on later. A role-based platform shell, with a shared top navigation and a side navigation for each role, let new modules plug in without a redesign.</td></tr>
+                <tr><td>Make the invisible work visible</td><td><strong>Data and integration progress was reported alongside design progress,</strong> so stakeholders could see the foundation being built, not just screens.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <figure class="wide tall">
+        <a href="../images/beacon/disc-platform.jpg" title="Open full size"><img src="../images/beacon/disc-platform.jpg" alt="Whiteboard of the Beacon 2.0 platform: a star for the end-to-end supply chain experience surrounded by modules (Buyer Modernization, CPFR, Traceability, PO Lifecycle Visibility, Vendor Scorecard, Leadership View, Digital Twin), each linked to the roles it serves, with vision principles below: role-based, reusable components, performance, accessible, teams can release independently."></a>
+        <figcaption>Working board for Beacon 2.0: one platform with modules around it, each tied to the roles it serves. The principles underneath, like role-based experience, shared components and independent releases, are what made it possible to start with buyers and extend later.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>What buyers told us</h2>
+          <p>We had a head start. In late 2022 our designers had interviewed the first buyers already working in RMS, a mix of fresh, center store and fulfillment center buyers. A buyer’s main job is simple to describe: see what needs to be ordered, write the purchase order, submit it. In practice, each step had extra work built into it.</p>
+
+          <div class="diagram">
+            <p class="diagram-title">A buyer’s real day in RMS</p>
+            <ol class="flow cols-3">
+              <li><strong>Check what to order</strong>Recommendations were based on averages that missed spikes, so buyers cross-checked them against their own spreadsheets and reports.</li>
+              <li><strong>Write and submit the PO</strong>No bulk editing. Items were edited one at a time, then approved, submitted and saved with three separate buttons, order after order.</li>
+              <li><strong>Follow up</strong>RMS didn’t flag problems until after an order was submitted, so buyers canceled and rewrote orders to protect their fill rate.</li>
+            </ol>
+          </div>
+
+          <div class="stats" role="list">
+            <div class="stat" role="listitem"><b>30–90</b><span>minutes a day spent placing orders in RMS</span></div>
+            <div class="stat" role="listitem"><b>17</b><span>tools and reports buyers checked to trust a number</span></div>
+            <div class="stat" role="listitem"><b>70</b><span>items, the most some buyers would put on one order, for fear of running out of time</span></div>
+          </div>
+
+          <p class="pull">“If you talk to 10 buyers, you’d probably find 10 different versions of this report.”</p>
+
+          <p>It came down to three themes: buyers couldn’t trust the data, the data they needed lived in too many places, and the process had little automation. The research also showed that buyers were measured on fill rate, which depended on suppliers, forecasting and transportation as much as on them. That connected their problem to the rest of the supply chain Beacon was meant to cover.</p>
+        </section>
+
+        <section>
+          <h2>Buyer Modernization</h2>
+          <p>Buyer Modernization was the first module on the Beacon 2.0 platform, a greenfield tool for the 200+ buyers migrating to RMS. As design manager I didn’t own the day-to-day pixels. I owned the solution approach: which buyer problems we solved first, how the tool fit beside RMS, and how it fit into the larger platform. Two senior product designers did the detailed design under my direction.</p>
+
+          <h3>Exceptions, not another reporting tool</h3>
+          <p>The tempting answer was to rebuild the RMS screens buyers struggled with. We didn’t. RMS was the system of record, and competing with it would have doubled the work. Instead, Buyer Modernization did the cross-checking buyers were doing by hand in spreadsheets. It flagged the supplier and distribution center combinations that needed attention, explained why, recommended an action, and then sent the buyer into RMS to act.</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="buyer-flow-title">
+        <p class="diagram-title" id="buyer-flow-title">How a buyer works an exception</p>
+        <ol class="flow cols-4">
+          <li><strong>See what needs attention</strong>One dashboard of exceptions by supplier and distribution center, with the share of items affected, sorted so the biggest impact comes first.</li>
+          <li><strong>Understand why</strong>Alert details bring together what buyers used to look up in separate reports: lead times, the next PO due, and the affected items.</li>
+          <li><strong>Act in RMS</strong>A recommended action, such as a rush order, with steps for doing it in RMS.</li>
+          <li><strong>Track progress</strong>Mark items complete or watch them, so the list replaces the personal spreadsheet.</li>
+        </ol>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/beacon/buyer-dashboard.jpg" alt="Buyer Modernization dashboard titled with the buyer's desk: an Exceptions tab, Status and DC Location filters, totals for new, pending and complete tasks, and a table of supplier sites with items impacted, exception type Low DOS, a status menu and a Review button.">
+        <figcaption>The MVP dashboard: each buyer’s desk lists the supplier sites with a low days-of-supply exception, the share of items affected and a status. Totals at the top show what’s new, pending and done. From the final design file; data is fictional.</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="../images/beacon/buyer-details.jpg" alt="Alert details window for one supplier site: total lead time, next PO due date and PO number, buttons to dismiss or mark the task pending or complete, and an item table with stock on hand, on order, days of supply, next PO quantity and recent receipts. The lowest days-of-supply rows are highlighted.">
+        <figcaption>Reviewing an alert: lead time, the next PO due and every affected item in one window. Before this, buyers pieced these numbers together from several reports. The rows at most risk are highlighted, and the buyer sets the task status from the header.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h3>One alert at a time</h3>
+          <p>We shipped alert types one at a time, each tied to a problem from the research:</p>
+          <ul>
+            <li><strong>Low days of supply</strong> came first. Buyers had been calculating days of supply by hand from on-hand and on-order numbers they couldn’t see in RMS. The alert did the math and showed which items were at risk.</li>
+            <li><strong>New and deleted items</strong> came next. Item setup errors caused order problems that RMS only flagged after a PO was submitted. The alert walked buyers through finding each item in RMS, setting its deactivation date and tracking their progress.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/beacon/buyer-newdelete.jpg" alt="New and deleted item alert: numbered steps to find the items in RMS, set the deactivation date, mark them complete and optionally watch their stock on hand, above a table of affected items with checkboxes, a progress count and a watch toggle.">
+        <figcaption>The next alert type used the same pattern, with the steps to take in RMS written out right on the page and a progress count. Names removed.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <p>The pattern stayed the same with each new alert type: dashboard, details, action in RMS, track progress. That kept each release small, gave buyers one routine to learn, and made the module easy to extend on the shared platform. The designers wrote annotated specs for each release, covering states, behavior and component guidance, so engineering could build without a round of follow-up questions.</p>
+        </section>
+      </div>
+
+      <figure class="wide tall">
+        <img src="../images/beacon/buyer-spec.jpg" alt="Annotated developer spec for the dashboard: numbered notes on navigation, tabs, filters, the summary counts and table columns, with features marked NOT FOR MVP greyed out.">
+        <figcaption>Part of the annotated spec for the MVP dashboard. Notes marked “not for MVP” are greyed out, so scope decisions were visible to engineering, not just the design.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <p>The MVP launched to the first group of buyers moving to RMS. During the rollout, our team embedded with buyers to support training and change management, and brought what we saw back to leadership to inform decisions about the rollout. The tool got several updates after launch. Program funding ended in 2025.</p>
+        </section>
+
+        <section>
+          <h2>What I’d carry forward</h2>
+          <ul>
+            <li><strong>A vision gets you funded; a business owner keeps you funded.</strong> Tie each release to a metric a named business owner already reports on, before building.</li>
+            <li><strong>Start where the business is already moving.</strong> The RMS migration gave Beacon 2.0 urgency and partners that the first MVP never had.</li>
+            <li><strong>Pick a first user whose work connects to everyone else’s.</strong> Buyers start the PO lifecycle, so solving for them laid groundwork for the roles that follow.</li>
+          </ul>
+        </section>
+
+        <p class="next-cs"><a href="ngpos.html">← Previous: NGPOS rollout management</a> · <a href="../index.html#work">All work</a> · <a href="fifththird.html">Next: Fifth Third online banking →</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chris Kluesener · Cincinnati, OH</span>
+      <nav aria-label="Footer">
+        <a href="mailto:ckluesener@gmail.com">Email me</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="../files/chris-kluesener-resume.pdf" download>Resume (PDF)</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>

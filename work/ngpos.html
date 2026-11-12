@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NGPOS Rollout Management · Chris Kluesener</title>
+  <meta name="description" content="Designing a platform to schedule, approve and track a new point-of-sale rollout across 2,700+ Kroger stores.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">Chris Kluesener</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../index.html#work">Work</a>
+        <a href="../resume.html">Resume</a>
+        <a href="mailto:ckluesener@gmail.com">Contact</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <header class="cs-hero">
+        <p class="eyebrow">Kroger · NextGen Point of Sale</p>
+        <h1>Replacing the rollout spreadsheet for 2,700+ stores</h1>
+        <p class="lede">Kroger is replacing the checkout software in every store. I led design of the tool that decides which stores convert when, who approves it, and what’s blocking the rest.</p>
+
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Hands-on lead designer (Senior Product Designer, Kroger’s top design IC level)</dd></div>
+          <div><dt>Timeline</dt><dd>2026 · about 6 months, joined mid-program</dd></div>
+          <div><dt>Team</dt><dd>Product manager, business stakeholders, offshore engineering team</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Figma Make, Claude Code, Dovetail, Copilot</dd></div>
+        </dl>
+      </header>
+
+      <figure class="wide">
+        <img src="../images/ngpos/store-queue.jpg" alt="Store Queue: a table of stores with division, eligible date, next scheduled conversion date, deployment date, status and tech readiness, with filters on the left and status totals at the top.">
+        <figcaption>The Store Queue: one row per store, one place to see readiness, dates and status across every division. Shown from the Figma Make prototype. All data is fictional.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <aside class="tldr" aria-label="Summary">
+          <h2>In short</h2>
+          <ul>
+            <li><strong>Problem:</strong> rollout readiness lived in spreadsheets. Each store had about 20 readiness variables across 5 teams, so “which stores can go live next week?” took hours to answer.</li>
+            <li><strong>What I did:</strong> defined how the rollout should work before designing screens, then designed the tool, tested it with 7 users and built its front end in code.</li>
+            <li><strong>Result:</strong> testing validated the concept, and findings drove clear changes to approvals, terminology and blocker visibility. The program paused before production launch.</li>
+          </ul>
+        </aside>
+
+        <section>
+          <h2>The problem wasn’t the software. It was the scale.</h2>
+          <p>Before a store can switch to the new point of sale, five independent workstreams have to finish: in-store cloud, the electronic control room, networking, terminal refresh and PIN pads. Each has its own owner, schedule and way of reporting status.</p>
+          <p>When I joined, that readiness was tracked in spreadsheets. Teams reconciled data by hand, chased conflicting statuses and spotted dependencies by eye. The core question, which stores are ready next week, had no quick or trustworthy answer.</p>
+
+          <div class="stats" role="list">
+            <div class="stat" role="listitem"><b>2,700+</b><span>stores to convert</span></div>
+            <div class="stat" role="listitem"><b>~20</b><span>readiness variables per store</span></div>
+            <div class="stat" role="listitem"><b>5</b><span>workstreams with separate owners</span></div>
+            <div class="stat" role="listitem"><b>10 wks</b><span>notice before each store’s conversion</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Joining a moving train</h2>
+          <p>I joined about six months into the program, after the previous designer left. Current-state discovery was done and well documented. What didn’t exist yet was a future state: how approvals should work, who owned which decision, and what happened when a store wasn’t ready.</p>
+          <p>So I didn’t start with screens. I started with a question everyone was answering differently.</p>
+          <p class="pull">“How should this process actually work?”</p>
+          <p>Kroger grew through acquisitions, so divisions often do the same work in different ways, with different terms and different approval rules. Requirements that sounded simple kept splitting into versions. I ran workshops with product, operations and division stakeholders and turned those assumptions into a shared model: service blueprints, future-state process maps, decision rules and governance flows.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/ngpos/disc-storymap.jpg" title="Open full size"><img src="../images/ngpos/disc-storymap.jpg" alt="Story map whiteboard for the NGPOS admin tool: a pink backbone of activities (readiness, scheduling, deployment, conversion, store, division, fleet, health, configuration), blue tasks under each, yellow options below, and red stickies for open questions."></a>
+        <figcaption>Working board: a story map built with product and engineering. The backbone runs from readiness to scheduling, conversion and fleet health. Red stickies mark open questions we still had to answer. It became our shared view of scope before anyone argued about screens.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+
+        <section>
+          <h2>A shared definition of “ready”</h2>
+          <p>One of the first outputs was a status model everyone agreed on. It sounds small, but before this, “ready” meant different things to different teams. The model became the backbone of the Store Queue, the filters and the dashboard.</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="status-title">
+        <p class="diagram-title" id="status-title">Store conversion status model</p>
+        <ol class="flow">
+          <li><strong>Not ready</strong>Still on the legacy system. Tech readiness incomplete.</li>
+          <li><strong>Eligible</strong>Tech readiness complete and the store’s format is supported.</li>
+          <li><strong>Scheduled</strong>The division rollout manager approved a conversion date.</li>
+          <li><strong>Training lane converted</strong>Optional. One lane converted early for hands-on training.</li>
+          <li><strong>Converted</strong>All lanes are on the new point of sale.</li>
+        </ol>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Designing the approval: “What am I approving?”</h2>
+          <p>The most important workflow was the approval itself. Ten weeks before a store’s conversion date, its division rollout manager gets an email asking them to approve or decline the date. On paper, that’s two buttons.</p>
+          <p>Testing the MVP showed it wasn’t. I mapped every step of the current flow against what participants said and did. The same questions came up again and again:</p>
+          <ul>
+            <li>Some went to the wrong part of the tool to find their approvals.</li>
+            <li>They wanted to know what approving actually committed them to.</li>
+            <li>Declining felt like a dead end. What date should they suggest, and why were they declining?</li>
+            <li>The final confirmation step felt like approving twice.</li>
+          </ul>
+          <p>I took the journey map back into a workshop with stakeholders. Together we worked through the edge cases nobody had documented: remodels, natural disasters, major incidents, stores that miss the deadline, and managers who cover more than one division.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/ngpos/disc-journey.jpg" title="Open full size"><img src="../images/ngpos/disc-journey.jpg" alt="Swimlane journey map of the current approve or decline flow: system process and user interaction lanes, with a row of red pain-point stickies such as users wanting more context on what approving means, and some users feeling they were approving twice."></a>
+        <figcaption>Working board: the approve/decline flow mapped step by step in system and user lanes, with what testing participants said pinned to the step where it happened (red). This is the map I took back to stakeholders.</figcaption>
+      </figure>
+
+      <div class="diagram wide" role="figure" aria-labelledby="approve-title">
+        <p class="diagram-title" id="approve-title">From testing finding to design change</p>
+        <table class="compare">
+          <thead><tr><th scope="col">What we heard in testing</th><th scope="col">What changed</th></tr></thead>
+          <tbody>
+            <tr><td>“What does approving this store actually mean?”</td><td>Each store card lists the checkout types and lanes being converted, and what’s not included. A plain-language note says approval covers all of them.</td></tr>
+            <tr><td>“If I decline, what date do I pick?”</td><td>The decline form opens right on the store card, and its calendar offers only valid conversion days (Tuesdays and Wednesdays).</td></tr>
+            <tr><td>“Nobody will know why I declined.”</td><td>A required reason, plus a confirmation that the plan was reviewed with division leadership.</td></tr>
+                        <tr><td>“Where do I even go to approve?”</td><td>Pending approvals lead the dashboard, with urgency, deadlines and review progress on each one.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="wide">
+        <div class="pair">
+          <div>
+            <p class="label">Before: MVP</p>
+            <img src="../images/ngpos/approval-mvp-crop.jpg" alt="MVP approval screen: each store card shows only a store name, city, and Decline and Approve buttons.">
+          </div>
+          <div>
+            <p class="label">After: built release</p>
+            <img src="../images/ngpos/approval-dev.jpg" alt="Revised approval card: lists staffed checkout, self checkout, pharmacy and fuel lanes being converted, and a 'Not included in this conversion' section.">
+          </div>
+        </div>
+        <figcaption>In the MVP, a store card showed only a name. In the built release, each card shows exactly which lanes and checkout types the approval covers, and what’s left out. That answers the most common question from testing.</figcaption>
+      </figure>
+
+      <figure class="wide">
+        <div class="pair">
+          <div>
+            <img src="../images/ngpos/dashboard-dev.jpg" alt="Dashboard with store totals and a notifications panel listing store conversion approvals, one marked Urgent and past due, plus upcoming conversion reminders.">
+          </div>
+          <div>
+            <img src="../images/ngpos/decline-dev.jpg" alt="Decline form on a store card: required reason, a calendar where only Tuesdays and Wednesdays can be picked, and a leadership confirmation checkbox.">
+          </div>
+        </div>
+        <figcaption>Left: approvals lead the dashboard, with urgency and deadlines up front. Right: declining happens on the store card, with a required reason, only valid dates to pick from, and a leadership check.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>The Store Queue: one row per store</h2>
+          <p>The Store Queue replaced the spreadsheet. I designed it around a few principles that came straight out of discovery:</p>
+          <ul>
+            <li><strong>One row per store,</strong> with each checkout type (staffed, self-checkout, pharmacy, fuel) as a row that expands underneath.</li>
+            <li><strong>Prerequisites stay visible.</strong> Each workstream’s details sit in its own column group, which you can turn on when you need it.</li>
+            <li><strong>Status you can act on.</strong> Filters match the shared status model, and you can bulk-edit status fields across many stores at once.</li>
+            <li><strong>Risk shows early.</strong> Deployable weeks, blackout weeks and capacity are visible right above the table.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/ngpos/store-profile-dev.jpg" alt="Store profile: conversion status and lanes converted, store information, a tech readiness checklist for five workstreams, and a modality rollout summary by status.">
+        <figcaption>The store profile pulls every workstream’s milestones into one checklist, then tracks each checkout type lane by lane. A blocker is obvious without opening five reports.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>An unexpected blocker: configurations</h2>
+          <p>A few months in, store configurations became a major blocker for conversions. These are the settings that control things like till limits, payment types and PIN pad behavior. The vendor platform had configuration tools, but they didn’t fit how Kroger needed to work. More importantly, no one could explain end to end how configuration <em>should</em> work across the enterprise.</p>
+          <p>I interviewed product leadership, technical leadership and the conversion support team. Then I mapped what they described: who owns each type of setting, how settings are inherited, how changes move through environments, and where approvals belong. That map gave product and engineering a shared mental model, and it unblocked solution discussions that had been going in circles.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/ngpos/disc-config.jpg" title="Open full size"><img src="../images/ngpos/disc-config.jpg" alt="Whiteboard of configuration concepts: enterprise, store and terminal nodes with inheritance; types of configuration; a column of environments from draft through dev, test, QA, stage and production across 2,700 stores; and sketches for updating, applying and auditing a configuration."></a>
+        <figcaption>Working board: the whiteboard from those interviews, sorting out what a configuration is, how it inherits, how it moves from draft through each environment to 2,700+ stores, and where merge conflicts and audits fit. The cleaned-up model is below.</figcaption>
+      </figure>
+
+      <div class="diagram wide" role="figure" aria-labelledby="config-title">
+        <p class="diagram-title" id="config-title">Configuration model, simplified</p>
+        <div class="nest">
+          <div>
+            <div class="nest-box"><b>Enterprise</b>
+              <div class="nest-box"><b>Division</b>
+                <div class="nest-box"><b>Store</b>
+                  <div class="nest-box"><b>Terminal</b></div>
+                </div>
+              </div>
+            </div>
+            <p class="nest-note">Every setting is inherited downward and can be overridden at a lower level.</p>
+          </div>
+          <div>
+            <ul class="pipeline">
+              <li>Draft a change plan</li>
+              <li>Validate and check for conflicts</li>
+              <li>Review and approve (approver can’t be the author)</li>
+              <li>Promote through Dev → Test → Stage</li>
+              <li>Apply to production stores, with an audit trail</li>
+            </ul>
+            <p class="nest-note">A “change plan” works like a pull request for store settings.</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/ngpos/config-review.jpg" alt="Configuration review screen for comparing a target store's settings with a reference store.">
+        <figcaption>The model turned into concepts: a guided review for comparing a store’s configuration against a known-good reference. Shown from the Figma Make prototype for the next phase.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Using AI to move faster, not to think less</h2>
+          <p>I used this project to test how far AI could speed up a senior designer’s workflow without lowering the bar. I used it in three places:</p>
+          <h3>Research</h3>
+          <p>I used AI to draft the test plan and facilitator script, then ran all 7 one-hour sessions myself. Dovetail and Copilot helped me synthesize about 7 hours of transcripts into themes in roughly 4 hours, work that used to take one to two weeks. I checked the themes against what observers saw and refined the summary before sharing it with leadership.</p>
+          <h3>Prototyping</h3>
+          <p>I built working concepts in Figma Make and tested them with the product manager, business stakeholders and end users. Reacting to a working screen instead of a requirement surfaced gaps and edge cases weeks earlier, and it shortened each round of concept and revision.</p>
+          <h3>Front-end code</h3>
+          <p>I built the tool’s front end with Claude Code. That gave me direct control over interaction and layout details that usually get lost in handoff. The offshore engineering team took the code and integrated it with the back end.</p>
+        </section>
+
+        <section>
+          <h2>What testing told us</h2>
+          <p>Participants understood right away why the tool should exist. Central rollout management, the readiness view, store drill-downs and health monitoring all tested well. The main gap was <strong>confidence</strong>: people wanted more context before approving something that affects a live store. That finding shaped the next release:</p>
+          <ul>
+            <li>Readiness context and blockers moved onto the approval and profile screens.</li>
+            <li>Project terms were replaced with the words stores and divisions actually use.</li>
+            <li>The decline flow was rebuilt around valid dates and a required reason.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <img src="../images/ngpos/health-dev.jpg" alt="Health and Monitoring tab of a store profile: lanes online and offline, and a lane table with model, software version, 7-day transactions and last check-in, expanded to show each device's status.">
+        <figcaption>Health monitoring tested well: after a store converts, operators can see every lane and device, its software version and when it last checked in.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+
+        <section>
+          <h2>Outcome</h2>
+          <p>The larger point-of-sale program paused before this tool reached production, so I can’t point to rollout metrics. What the work did leave behind:</p>
+          <ul>
+            <li>An agreed future-state process for scheduling, approving and declining store conversions, including the exceptions.</li>
+            <li>A tested MVP, a built release that addressed the testing findings, and prototypes for the next phase: fleet, release and configuration management.</li>
+            <li>A shared model of configuration ownership that had been missing.</li>
+            <li>A front end in production-quality code, ready for engineering to integrate.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Reflection</h2>
+          <p>The hardest problems on this project weren’t interface problems. They were questions the organization hadn’t answered yet: who decides, what “ready” means, what happens when the plan breaks. My most useful work happened before any screen existed.</p>
+          <p>It also changed how I work. Using AI to synthesize research and write code didn’t replace judgment. It removed the slow parts, so I spent more time with users and stakeholders and less time pushing pixels and notes around. If I did it again, I’d bring the configuration questions forward. They were there from the start, and they only surfaced once they blocked a conversion.</p>
+        </section>
+
+        <p class="next-cs"><a href="../index.html#work">← All work</a> · <a href="beacon.html">Next: Beacon supply chain control tower →</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chris Kluesener · Cincinnati, OH</span>
+      <nav aria-label="Footer">
+        <a href="mailto:ckluesener@gmail.com">Email me</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="../files/chris-kluesener-resume.pdf" download>Resume (PDF)</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
