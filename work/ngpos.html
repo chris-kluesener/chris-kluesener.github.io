@@ -47,7 +47,7 @@
         <aside class="tldr" aria-label="Summary">
           <h2>In short</h2>
           <ul>
-            <li><strong>Problem:</strong> rollout readiness lived in spreadsheets. Each store had about 20 readiness variables across 5 teams, so “which stores can go live next week?” took hours to answer.</li>
+            <li><strong>Problem:</strong> rollout readiness lived in spreadsheets. Division rollout managers reported each store’s readiness, about 20 variables, back to the program, where it was consolidated by hand. “Which stores can go live next week?” took hours to answer.</li>
             <li><strong>What I did:</strong> defined how the rollout should work before designing screens, then designed the tool, tested it with 7 users and built its front end in code.</li>
             <li><strong>Result:</strong> testing validated the concept, and findings drove clear changes to approvals, terminology and blocker visibility. The program paused before production launch.</li>
           </ul>
@@ -55,13 +55,18 @@
 
         <section>
           <h2>The problem wasn’t the software. It was the scale.</h2>
-          <p>Before a store can switch to the new point of sale, five independent workstreams have to finish: in-store cloud, the electronic control room, networking, terminal refresh and PIN pads. Each has its own owner, schedule and way of reporting status.</p>
-          <p>When I joined, that readiness was tracked in spreadsheets. Teams reconciled data by hand, chased conflicting statuses and spotted dependencies by eye. The core question, which stores are ready next week, had no quick or trustworthy answer.</p>
+          <p>Before a store can switch to the new point of sale, it has to be ready in five areas: in-store cloud, the electronic control room, networking, terminal refresh and PIN pads.</p>
+          <p>Readiness for each division belonged to its <strong>division rollout manager</strong>. These managers worked in their divisions but had a dotted line to the NGPOS program. When I joined, they reported readiness back to a program manager, who consolidated it in spreadsheets. Data was reconciled by hand, statuses conflicted, and dependencies were spotted by eye. The core question, which stores are ready next week, had no quick or trustworthy answer.</p>
+          <p>That made division rollout managers one of the tool’s most important user groups, and it shaped two parts of the design:</p>
+          <ul>
+            <li><strong>Self-service.</strong> Managers keep their own stores’ readiness current in the tool, instead of feeding updates to someone else to type in.</li>
+            <li><strong>Alerts.</strong> The tool tells them when something needs their attention, like an approval coming due or a store falling behind, so readiness stays on track between check-ins.</li>
+          </ul>
 
           <div class="stats" role="list">
             <div class="stat" role="listitem"><b>2,700+</b><span>stores to convert</span></div>
             <div class="stat" role="listitem"><b>~20</b><span>readiness variables per store</span></div>
-            <div class="stat" role="listitem"><b>5</b><span>workstreams with separate owners</span></div>
+            <div class="stat" role="listitem"><b>5</b><span>readiness areas per store</span></div>
             <div class="stat" role="listitem"><b>10 wks</b><span>notice before each store’s conversion</span></div>
           </div>
         </section>
@@ -173,7 +178,7 @@
 
       <figure class="wide">
         <img src="../images/ngpos/store-profile-dev.jpg" alt="Store profile: conversion status and lanes converted, store information, a tech readiness checklist for five workstreams, and a modality rollout summary by status.">
-        <figcaption>The store profile pulls every workstream’s milestones into one checklist, then tracks each checkout type lane by lane. A blocker is obvious without opening five reports.</figcaption>
+        <figcaption>The store profile pulls every workstream’s milestones into one checklist, then tracks each checkout type lane by lane. A blocker is obvious without waiting for the next spreadsheet update.</figcaption>
       </figure>
 
       <div class="cs-body text">

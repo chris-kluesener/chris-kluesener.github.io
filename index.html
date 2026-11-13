@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="wrap">
@@ -26,57 +26,87 @@
 
     <main id="main">
       <section class="hero">
-        <h1>Design leader and hands-on product designer for complex, operational products.</h1>
-        <p class="lede">I build design teams, and I still do the work. For 15+ years I’ve designed products where the problem is ambiguous and the answer isn’t a screen yet. Right now I’m going deep on designing with AI: prototyping in Figma Make, synthesizing research and building front ends in code.</p>
+        <div class="hero-text">
+          <p class="hello">Hi, I’m Chris.</p>
+          <h1>Design leader and hands-on product designer for complex, operational products.</h1>
+          <p class="lede">I build design teams, and I still do the work. For 15+ years I’ve designed products where the problem is ambiguous and the answer isn’t a screen yet. Right now I’m going deep on designing with AI: prototyping in Figma Make, synthesizing research and building front ends in code.</p>
+        </div>
+        <img class="hero-photo" src="images/chris-kluesener.jpg" alt="Chris Kluesener, smiling, in a plaid shirt against a dark blue wall." width="320" height="320">
       </section>
 
       <section id="work" aria-labelledby="work-label">
-        <p class="section-label" id="work-label">Selected work</p>
-        <ul class="work-list">
-          <li>
-            <a class="work-link" href="work/ngpos.html">
-              <div class="work-item">
-                <div class="work-thumb"><img src="images/ngpos/store-queue.jpg" alt="Store Queue screen showing rollout status for stores across divisions"></div>
-                <div>
-                  <span class="tag">Kroger · 2026 · Enterprise platform</span> <span class="tag role">Hands-on lead designer</span>
-                  <h2>Replacing the rollout spreadsheet for 2,700+ stores</h2>
+        <h2 class="section-title" id="work-label">Selected work</h2>
+        <ul class="cards">
+          <li class="card tone-sky">
+            <a class="card-link" href="work/ngpos.html">
+                <div class="card-text">
+                  <p class="card-tags"><span class="tag">Kroger · 2026 · Enterprise platform</span> <span class="tag role">Hands-on lead designer</span></p>
+                  <h3>Replacing the rollout spreadsheet for 2,700+ stores</h3>
                   <p>I led design of a greenfield tool for scheduling and approving new point-of-sale rollouts, from future-state workshops to usability testing to a front end I built with Claude Code.</p>
-                  <span class="work-cta">Read the case study →</span>
+                  <span class="btn">View case study</span>
                 </div>
-              </div>
+                <div class="card-media"><img src="images/ngpos/store-queue.jpg" alt="Store Queue screen showing rollout status for stores across divisions"></div>
             </a>
           </li>
-          <li>
-            <a class="work-link" href="work/beacon.html">
-              <div class="work-item">
-                <div class="work-thumb"><img src="images/beacon/release1-dashboard.jpg" alt="Control tower dashboard with a to-do list of problem purchase orders, trend alerts and a facility health score"></div>
-                <div>
-                  <span class="tag">Kroger · 2022–2025 · Vision to two MVPs</span> <span class="tag role">Design manager · directed 2 designers</span>
-                  <h2>Beacon: a supply chain control tower</h2>
+          <li class="card tone-olive">
+            <a class="card-link" href="work/beacon.html">
+                <div class="card-text">
+                  <p class="card-tags"><span class="tag">Kroger · 2022–2025 · Vision to two MVPs</span> <span class="tag role">Design manager · directed 2 designers</span></p>
+                  <h3>Beacon: a supply chain control tower</h3>
                   <p>I turned a white paper into a role-based control tower vision that funded up to three product teams, shipped a first MVP for analysts, and restarted the platform around buyers when it stalled.</p>
-                  <span class="work-cta">Read the case study →</span>
+                  <span class="btn">View case study</span>
                 </div>
-              </div>
+                <div class="card-media"><img src="images/beacon/release1-dashboard.jpg" alt="Control tower proof of concept with a to-do list of problem purchase orders, trend alerts and a facility health score"></div>
             </a>
           </li>
-          <li>
-            <a class="work-link" href="work/fifththird.html">
-              <div class="work-item">
-                <div class="work-thumb"><img src="images/fifththird/hero.jpg" alt="Fifth Third Move Money flow on desktop and phone, asking where the money is going"></div>
-                <div>
-                  <span class="tag">Fifth Third Bank · 2015–2016 · Consumer web</span> <span class="tag role">Co-lead designer</span>
-                  <h2>Move money: redesigning online banking around what customers do most</h2>
+          <li class="card tone-orange">
+            <a class="card-link" href="work/fifththird.html">
+                <div class="card-text">
+                  <p class="card-tags"><span class="tag">Fifth Third Bank · 2015–2016 · Consumer web</span> <span class="tag role">Co-lead designer</span></p>
+                  <h3>Move money: redesigning online banking around what customers do most</h3>
                   <p>I co-led a mobile-first redesign of online banking (1M+ logins a day) that replaced five separate money-movement tools with one simple flow, built on a pattern library that grew into the bank’s design system.</p>
-                  <span class="work-cta">Read the case study →</span>
+                  <span class="btn">View case study</span>
                 </div>
-              </div>
+                <div class="card-media"><img src="images/fifththird/hero.jpg" alt="Fifth Third Move Money flow on desktop and phone, asking where the money is going"></div>
+            </a>
+          </li>
+          <li class="card tone-sky soon">
+            <div class="card-link">
+                <div class="card-text">
+                  <p class="card-tags"><span class="tag">Kroger · 2021–2026 · Design leadership</span> <span class="tag role">Senior manager</span></p>
+                  <h3>Building a design practice from zero</h3>
+                  <p>Hired as the first product design leader in Kroger’s supply chain organization, I grew a team from 2 to 8 designers and set up how design works with product and engineering.</p>
+                  <span class="btn btn-soon">Coming soon</span>
+                </div>
+                
+                <div class="card-media card-figure" aria-hidden="true"><span>2 → 8</span><small>designers in two years</small></div>
+            </div>
+          </li>
+          <li class="card tone-olive soon">
+            <div class="card-link">
+                <div class="card-text">
+                  <p class="card-tags"><span class="tag">Fifth Third Bank · Design systems</span> <span class="tag role">Founder</span></p>
+                  <h3>Founding Fifth Third’s design system</h3>
+                  <p>How a pattern library for one redesign became a design system for web and mobile, with its own team of designers and UX engineers.</p>
+                  <span class="btn btn-soon">Coming soon</span>
+                </div>
+                <div class="card-media"><img src="images/fifththird/pattern-lab.jpg" alt="Icon atoms from the Fifth Third pattern library"></div>
+            </div>
+          </li>
+          <li class="card tone-dark">
+            <a class="card-link" href="mailto:ckluesener@gmail.com">
+                <div class="card-text">
+                  <h3>More stories, just ask.</h3>
+                  <p>Available to Promise, food safety traceability, Private Bank, alerts that won an industry award. Some work is better told in conversation.</p>
+                  <span class="btn btn-light">Reach out</span>
+                </div>
             </a>
           </li>
         </ul>
       </section>
 
       <section class="lead" aria-labelledby="design-label">
-        <p class="section-label" id="design-label">How I design</p>
+        <h2 class="section-title" id="design-label">How I design</h2>
         <ul class="lead-list principles">
           <li><b>Problem before pixels</b><span>I don’t open Figma until we agree on the problem. On Beacon, that meant narrowing “the whole supply chain” to the purchase order.</span></li>
           <li><b>Make the thinking visible</b><span>Journey maps, story maps and system models give a room something to point at. A configuration map unblocked NGPOS when meetings couldn’t.</span></li>
@@ -86,7 +116,7 @@
       </section>
 
       <section class="lead" aria-labelledby="lead-label">
-        <p class="section-label" id="lead-label">How I lead</p>
+        <h2 class="section-title" id="lead-label">How I lead</h2>
         <ul class="lead-list">
           <li><b>2 → 8</b><span>Built Kroger’s supply chain design team in two years, hiring for the skills discovery showed we were missing, and coached it through 1:1s, design reviews and workshops.</span></li>
           <li><b>First</b><span>First product design leader in Kroger’s Supply Chain, Manufacturing, Finance &amp; Accounting organization. I set up how design works with product and engineering.</span></li>
@@ -96,9 +126,8 @@
       </section>
 
       <section class="about" aria-labelledby="about-label">
-        <p class="section-label" id="about-label">About me</p>
+        <h2 class="section-title" id="about-label">About me</h2>
         <div class="about-grid">
-          <img class="about-photo" src="images/chris-kluesener.jpg" alt="Chris Kluesener, smiling, in a plaid shirt against a dark blue wall." width="200" height="200">
           <div class="about-text">
             <p>I’m a product designer in Cincinnati with 15+ years in banking, B2B e-commerce and retail supply chain. Leading a team taught me to judge design work by how a designer frames the problem, not just by the screens at the end.</p>
             <p>My favorite part of the job is the messy middle: the whiteboards, the workshops and the moment a room finally agrees on how a process should work. Then I make it real, in Figma and more and more in code.</p>
@@ -108,7 +137,7 @@
       </section>
 
       <section class="where" aria-labelledby="where-label">
-        <p class="section-label" id="where-label">Where I’ve been</p>
+        <h2 class="section-title" id="where-label">Where I’ve been</h2>
         <ul>
           <li><strong>Kroger</strong><span>Senior Product Designer; Senior Manager, Product Design · 2021–now</span></li>
           <li><strong>Fifth Third Bank</strong><span>Senior UX Designer · 2011–2021</span></li>
