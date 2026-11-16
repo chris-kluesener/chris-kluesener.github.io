@@ -310,3 +310,30 @@ a.card-link:focus-visible { outline: 3px solid var(--orange); outline-offset: 4p
 .home .site-name, .home .site-nav a { color: #fff; }
 .home .site-header a:focus-visible { outline-color: var(--orange); }
 .home .hero-photo { border-color: var(--prussian); box-shadow: 0 0 0 8px var(--orange), 0 18px 40px rgba(0,0,0,.35); }
+
+/* Leadership case study diagrams */
+.seat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; }
+.seat { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--sky); border-radius: 8px; padding: 0.9rem; font-size: 0.88rem; line-height: 1.4; }
+.seat p { margin: 0 0 0.35rem; }
+.seat-domain { font-family: var(--font-heading); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate); }
+.seat-role { font-family: var(--font-heading); font-weight: 700; font-size: 0.98rem; color: var(--prussian); }
+.seat-skills { color: var(--prussian); }
+.seat-work { color: var(--slate); margin-bottom: 0 !important; }
+.seat-work::before { content: "Working on: "; font-weight: 500; }
+.seat-open { border-style: dashed; border-top-style: solid; border-top-color: var(--orange); background: var(--orange-soft); }
+.maturity { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+.maturity li { display: grid; grid-template-columns: 13rem 1fr 11rem; gap: 1rem; align-items: center; font-size: 0.95rem; }
+.m-name { font-family: var(--font-heading); font-weight: 700; }
+.m-bar { height: 12px; background: var(--sky-soft); border-radius: 999px; overflow: hidden; }
+.m-bar span { display: block; height: 100%; background: var(--olive); border-radius: 999px; }
+.m-label { color: var(--slate); font-size: 0.9rem; }
+.goal { display: inline-block; font-size: 0.82rem; font-weight: 500; padding: 0.1rem 0.6rem; border-radius: 999px; border: 1px solid; }
+.goal.full { border-color: var(--prussian); }
+.goal.fresh { border-color: var(--olive); background: var(--olive-soft); }
+.reshape .seat-domain { margin-bottom: 0.6rem; }
+.quotes { list-style: none; padding: 0 !important; }
+.quotes li { border-left: 3px solid var(--sky); padding: 0.2rem 0 0.2rem 1rem; margin-bottom: 1rem; font-style: italic; }
+.quotes li span { display: block; font-style: normal; color: var(--slate); font-size: 0.9rem; margin-top: 0.25rem; }
+@media (max-width: 860px) { .seat-grid { grid-template-columns: 1fr 1fr; } .maturity li { grid-template-columns: 1fr; gap: 0.3rem; } }
+@media (max-width: 520px) { .seat-grid { grid-template-columns: 1fr; } }
+.reshape .pipeline li:last-child { font-weight: 400; }
