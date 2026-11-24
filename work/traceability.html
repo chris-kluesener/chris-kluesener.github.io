@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traceability: Designing for the Warehouse Floor · Chris Kluesener</title>
+  <meta name="description" content="New FDA traceability rules meant capturing data every time a pallet changed hands. I moved the design of Kroger's scanning app from a vendor to my team, and we built it with warehouse receivers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="site-name" href="../index.html">Chris Kluesener</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../index.html#work">Work</a>
+        <a href="../resume.html">Resume</a>
+        <a href="mailto:ckluesener@gmail.com">Contact</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <header class="cs-hero">
+        <p class="eyebrow">Kroger · Frontline mobile and web · Design leadership</p>
+        <h1>Traceability: designing for the warehouse floor</h1>
+        <p class="lede">New FDA food and drug rules meant Kroger had to trace products back to their source, which meant capturing data every time a pallet changed hands. When I saw the scanning app a vendor was building for our warehouse receivers, it was clear no designer had touched it. I made the case to move the design to my team, and we built it with the receivers who would use it.</p>
+
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Senior Manager, Product Design. Directed two senior product designers, one on research and discovery and one on the app and web portal. Ran weekly design reviews and joined usability testing at a distribution center.</dd></div>
+          <div><dt>Timeline</dt><dd>2023 to early 2025. The app launched at a pilot distribution center in 2025.</dd></div>
+          <div><dt>Users</dt><dd>Warehouse receivers on Android handheld scanners, plus distribution center, food safety and compliance teams on the web</dd></div>
+          <div><dt>Products</dt><dd>An Android scanning app and a responsive web portal for tracking inbound shipments</dd></div>
+        </dl>
+      </header>
+
+      <div class="stats wide" role="list" style="max-width: var(--wide-width)">
+        <div class="stat" role="listitem"><b>2</b><span>federal rules: FSMA 204 for food, DSCSA for drugs</span></div>
+        <div class="stat" role="listitem"><b>6,000+</b><span>suppliers who would need to send shipment data</span></div>
+        <div class="stat" role="listitem"><b>3–4 months</b><span>to onboard a single supplier, by hand, at the start</span></div>
+        <div class="stat" role="listitem"><b>2 languages</b><span>English and Spanish, in the first release</span></div>
+      </div>
+
+      <div class="cs-body text">
+        <aside class="tldr" aria-label="Summary">
+          <h2>In short</h2>
+          <ul>
+            <li><strong>Situation:</strong> to meet FDA traceability rules, Kroger needed receivers to scan pallet and case labels as product arrived at distribution centers. A vendor was building the scanning app, and it was being designed by an engineer.</li>
+            <li><strong>What I did:</strong> staffed discovery with a research-focused designer, made the case to move the app’s design to my team, added a second designer for the app and web portal, and went to a distribution center to test it with receivers. I pushed for English and Spanish support in the first release.</li>
+            <li><strong>Result:</strong> the app launched at a pilot distribution center, and receivers responded well, even though it added a required step to their day. The program grew big enough to become its own area.</li>
+          </ul>
+        </aside>
+
+        <section>
+          <h2>A rule that touches every handoff</h2>
+          <p>FSMA 204 is the FDA’s food traceability rule. For high-risk foods like fresh produce, it requires grocers to keep records that can trace a product back to where it came from, fast, when there’s a recall. DSCSA sets similar rules for prescription drugs. Kroger started pilots for both in 2023, with fresh suppliers at one site and pharmacy suppliers at three distribution centers.</p>
+          <p>Tracing a product means connecting data that lived in different places: the purchase order, the supplier’s advance ship notice, the label on each pallet and the label on each case. Some of it came from suppliers’ systems. Some of it could only be captured by a person with a scanner at the receiving dock.</p>
+        </section>
+      </div>
+
+      <div class="diagram wide" role="figure" aria-labelledby="journey-title">
+        <p class="diagram-title" id="journey-title">Where traceability data comes from</p>
+        <ol class="flow">
+          <li><strong>Order</strong>Kroger sends the supplier a purchase order.</li>
+          <li><strong>Ship</strong>The supplier sends an advance ship notice listing what’s on the truck.</li>
+          <li><strong>Arrive</strong>A receiver scans the pallet label at the distribution center.</li>
+          <li><strong>Receive</strong>The receiver scans each case label, with its lot number and dates.</li>
+          <li><strong>Connect</strong>The data is matched and checked, so any product can be traced.</li>
+        </ol>
+      </div>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Staffing the discovery</h2>
+          <p>Traceability started as part of inventory visibility, one of the areas my team supported. Before anyone designed a screen, we needed to understand how data moved between suppliers, systems and people. I put a senior designer with a strong research and service design background on it. He mapped how product and data move through the supply chain, and where traceability data could be sent, uploaded or captured by hand.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/traceability/data-journey-board.jpg" title="Open full size"><img src="../images/traceability/data-journey-board.jpg" alt="Working board titled Moving data. It shows three ways data can travel from suppliers, Kroger manufacturing and third-party logistics to distribution centers and stores: EDI or API, bulk upload, and manual capture for small suppliers. Next to it are a handheld scanning app and a web portal, and a product ecosystem diagram."></a>
+        <figcaption>Working board: how traceability data moves between locations, and the products that would capture and show it. A handheld app for receiving, a web portal for everyone else, and an open question about small suppliers without modern systems.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <p>Discovery also showed how much was riding on the supplier side. Onboarding a single supplier to send the right shipment data took three to four months of one-on-one work, and there were more than 6,000 suppliers. I led a cross-team session to explain the basics of supplier data (EDI) and to widen the conversation: the same shipment data that met the rule could help warehousing, transportation, finance, planning and buying too.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/traceability/asn-problems-board.jpg" title="Open full size"><img src="../images/traceability/asn-problems-board.jpg" alt="Board titled What problems have we heard so far that we think shipment data can help with in supply chain. Six columns: warehousing, transportation and logistics, finance, forecasting and planning, buying, and stores, each with problems and stakeholders."></a>
+        <figcaption>From the session I led: problems that better shipment data could help solve, by area of the supply chain. It made traceability a business case, not just a compliance cost.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Noticing what was missing</h2>
+          <p>As the program moved into building, Kroger partnered with an outside company to build the scanning app. My designer brought me an early version, and I could tell right away that no UX designer had worked on it. The screen was blank until something was scanned. Results showed up as raw barcode data. The only action was a button labeled “Clear,” which wiped out everything that had been scanned.</p>
+          <p class="pull">Receivers would use this app on every pallet. It had to be designed for them.</p>
+          <p>I made the case to leadership that my team should own the app’s experience. It turned out to be an easy conversation, because leaders had seen the app too. I had a second senior designer coming free as another program wound down, so I put that designer on the app and the web portal part-time, while the research-focused designer kept going on discovery.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/traceability/before-vendor-app.jpg" title="Open full size"><img src="../images/traceability/before-vendor-app.jpg" alt="Two screens of the vendor’s early Scan Demo app on an Android handheld. One is blank except for a Clear button. The other shows a block of raw barcode data: traceability type, load ID, SSCC, GTIN, packaging date, lot number and a time stamp."></a>
+        <figcaption>Before: the vendor’s early build. A blank screen, raw barcode data, and one “Clear” button that erased everything.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Designing for receivers</h2>
+          <p>Receivers work fast, on a dock, with a handheld scanner. They need to know what to scan, whether it worked, and what’s missing, without reading a block of numbers. We reworked the flow around those needs:</p>
+          <ul>
+            <li><strong>Show what’s needed.</strong> A checklist of the three labels to scan (load, pallet and case) instead of a blank screen.</li>
+            <li><strong>Confirm each scan.</strong> Each label checks off as it’s scanned, so progress is visible at a glance.</li>
+            <li><strong>Say exactly what’s missing.</strong> When a scan only partly reads, the app asks for the specific label still needed.</li>
+            <li><strong>Plan for damaged labels.</strong> Receivers can enter a barcode by hand when it won’t scan.</li>
+            <li><strong>Review before sending.</strong> Receivers check the captured data, then complete the scan, with a clear confirmation at the end.</li>
+            <li><strong>Make the screens easy to hit.</strong> Larger touch targets and buttons that say what they do.</li>
+          </ul>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <a href="../images/traceability/after-scan-flow.jpg" title="Open full size"><img src="../images/traceability/after-scan-flow.jpg" alt="Redesigned scanning flow on Android: Start Scanning with a checklist of load ID, SSCC and case ID; the same list with all three checked; a Review Data screen with labeled values; and a Scan Completed confirmation. Below, a partial scan state asking the receiver to scan the remaining case ID barcode."></a>
+        <figcaption>After: the redesigned scanning flow. A checklist of labels, a check for each scan, a review step and a clear confirmation. Below, a partial scan tells the receiver exactly which label is still needed.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>Testing on the floor, in two languages</h2>
+          <p>I went with my designers to a distribution center to run usability tests with receivers on the devices they’d use. Many of our receivers speak Spanish, so we tested the app with bilingual users too.</p>
+          <p>That testing made the case for something I pushed hard on: English and Spanish support in the first release, not a later phase. An app that adds a required step to someone’s job has to work in the language they think in. It made the first release.</p>
+        </section>
+
+        <section>
+          <h2>A web portal for everyone else</h2>
+          <p>The data receivers captured had to be useful to the rest of the distribution center, and to food safety and compliance teams. We designed a responsive web portal where people could see what was arriving, follow a purchase order across several shipments, and search by shipment, order, pallet or lot.</p>
+          <p>Our design reviews kept coming back to one question: what does someone need at each level, from shipment to order to pallet to case? If they only need to see the data, the screen should make the answer obvious. If they need to act, the action belongs on that level.</p>
+        </section>
+      </div>
+
+      <figure class="wide">
+        <div class="pair">
+          <div><img src="../images/traceability/portal-dashboard.jpg" alt="Mobile web dashboard for a pharmacy distribution center: open purchase orders, a 7-day forecast of expected orders, pallets, cases and pieces, and a bar chart of expected purchase orders by day."></div>
+          <div><img src="../images/traceability/portal-po-detail.jpg" alt="Purchase order detail on mobile web: pallets shipped, cases ordered versus shipped, shorted pieces and percent fulfilled, with a fulfillment history timeline showing each shipment and the running percent complete."></div>
+        </div>
+        <figcaption>The web portal on a phone. Left: what’s arriving at a distribution center this week. Right: one purchase order, with a timeline showing how each shipment filled it.</figcaption>
+      </figure>
+
+      <div class="cs-body text">
+        <section>
+          <h2>A one-off app, on purpose</h2>
+          <p>Ideally, traceability scanning would live inside the app receivers already used. But that receiving system was old and was being replaced. Waiting for it would have missed the regulatory deadline. So we built a standalone app to meet the rule, with a plan to fold it into the new receiving app later. The trade-off was one extra step for receivers, so we worked to make that step as quick and clear as we could.</p>
+        </section>
+
+        <section>
+          <h2>Outcome</h2>
+          <ul>
+            <li><strong>Launched and well received.</strong> The app launched at a pilot pharmacy distribution center. Receivers responded well to it. It added a step to their work, but they understood it was required.</li>
+            <li><strong>Built for the people using it.</strong> English and Spanish support was there from the first release.</li>
+            <li><strong>A program that outgrew its home.</strong> Traceability grew from a corner of inventory visibility into a program of its own. In a 2025 reorganization it moved to another design manager.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>What I learned</h2>
+          <ul>
+            <li><strong>Staff discovery for the problem you have.</strong> A messy, cross-company data problem needed a research and service design mind first, not screens.</li>
+            <li><strong>Raise the bar early.</strong> The cheapest time to fix an engineer-designed app is before it ships. Showing leaders the gap made the decision easy.</li>
+            <li><strong>Go to where the work happens.</strong> Testing on the dock, with real devices and bilingual users, changed what we shipped first.</li>
+            <li><strong>A required step still deserves good design.</strong> When people have no choice about using a tool, making it easy matters more, not less.</li>
+          </ul>
+        </section>
+
+        <p class="next-cs"><a href="rms-adoption.html">← Previous: Keeping a team pointed at users</a> · <a href="../index.html#work">All work</a> · <a href="fifththird.html">Next: Fifth Third Move money →</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Chris Kluesener · Cincinnati, OH</span>
+      <nav aria-label="Footer">
+        <a href="mailto:ckluesener@gmail.com">Email me</a>
+        <a href="https://www.linkedin.com/in/ckluesener/" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="../files/chris-kluesener-resume.pdf" download>Resume (PDF)</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
